@@ -1,6 +1,7 @@
 from flask import Flask
 from flask import request
 import requests
+import os
 
 app = Flask(__name__)
 
@@ -8,7 +9,7 @@ app = Flask(__name__)
 def home_view():
 	return "<h1>get stickbugged</h1>"
 
-google_API_key = ""
+google_API_key = os.environ.get('GOOGLE_API_KEY')
 
 def parse_args(value):
 	coords = value.split('&', 1)
