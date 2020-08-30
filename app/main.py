@@ -62,7 +62,6 @@ def hash_coords(coordinates):
 @app.route("/seed")
 def hash():
 	args = request.args
-	# return f"<h1>{str(args)}</h1>"
 	seed = "git seed"
 	if args:
 		coords = (args["lat"], args["long"])
@@ -71,22 +70,5 @@ def hash():
 			new_coords = get_geocode_coords(coords)
 			seed = hash_coords(new_coords)
 		print(seed)
-		# return json.dumps({"seed": seed})
-		# return seed
 	return f"<h1>{seed}</h1>"
 
-# hash("long=-125.393308&lat=37.336796")
-
-# Radar stuff b/c radar doesn't like broke people who can't afford $500 tier
-# radar_API_key_public = "prj_test_pk_f4c86b3b990fb39500fd6771b35dda55f84a0b13"
-# radar_API_key_secret = ""
-
-# coordinates = (40.78382, -73.97536)
-
-# context_url = f"https://api.radar.io/v1/context?coordinates={coordinates[0]},{coordinates[1]}"
-
-# response = requests.get(context_url,
-# 	headers = {"Authorization": radar_API_key_public})
-
-# print(context_url)
-# print(response.json())
